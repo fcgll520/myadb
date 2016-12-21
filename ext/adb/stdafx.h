@@ -1,0 +1,10 @@
+#pragma once
+#include <windows.h>
+#include "winusb/usb.h"
+#include <string>
+#include <map>
+#include <list>
+#include <vector>
+#include <atlbase.h>
+#include <SetupAPI.h>
+#include <direct.h>
