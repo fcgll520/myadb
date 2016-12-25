@@ -36,7 +36,7 @@ int adb_stat(const char* path, struct adb_stat* s) {
 // This definition of wstat seems to be missing from <sys/stat.h>.
 #if defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)
 #ifdef _USE_32BIT_TIME_T
-#define wstat _wstat32i64
+#define wstat _wstat32
 #else
 #define wstat _wstat64
 #endif
@@ -59,7 +59,7 @@ int adb_stat(const char* path, struct adb_stat* s) {
     }
 
     //struct adb_stat st;
-	struct _stat32i64 st;
+	struct _stat32 st;
     int result = wstat(path_wide.c_str(), &st);
     if (result == 0 && expected_directory) {
         if (!S_ISDIR(st.st_mode)) {
